@@ -1,26 +1,12 @@
-# ForgeCost — Sistema Industrial de Custos
+# ForgeCost V2
 
-Protótipo funcional front-end de um sistema de cadastro, ficha técnica/BOM, mão de obra e formação de custos.
+Versão atualizada com 98 insumos importados da planilha fornecida.
 
-## Executar
-Abra `index.html` em um navegador moderno.
+- Produto inicial: Cadeira Acapulco - Corda Nautica.
+- Produtos e insumos editáveis/excluíveis.
+- Unidade de compra, quantidade por compra e unidade de uso separadas.
+- Custo por unidade de uso = preço de compra / quantidade por compra.
+- Ao editar um insumo, produtos vinculados são recalculados.
+- Persistência em LocalStorage: alterações permanecem após recarregar o navegador.
 
-## Funcionalidades demonstradas
-- Dashboard industrial responsivo
-- Cadastro de produtos
-- Cadastro de insumos
-- Categorias
-- Ficha técnica/BOM
-- Componentes com perda e cálculo automático
-- Processos de mão de obra por unidade
-- Custo-hora derivado de salário / horas mensais
-- Histórico de alterações
-- Custos dos produtos
-- Relatórios
-- Pesquisa global
-- Interface mobile adaptada
-- Modais/drawers de cadastro
-- Estados e feedback de interação
-
-## Observação
-Este pacote é um front-end funcional/protótipo. Para produção, o próximo passo é conectar uma API, banco relacional, autenticação/autorização e um `CostCalculationService` no backend, mantendo o motor financeiro como fonte única de verdade.
+Abra index.html no navegador.
