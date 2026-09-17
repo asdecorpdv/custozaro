@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111417">
+  <meta name="description" content="Sistema industrial de cadastro, ficha técnica e formação de custos.">
+  <title>ForgeCost — Gestão Industrial de Custos</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="assets/forgecost-symbol.svg">
+  <link rel="apple-touch-icon" href="assets/app-icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="src/styles.css">
+  <link rel="stylesheet" href="src/forgecost.css">
+  <script src="src/services.js"></script>
+</head>
+<body>
+  <section class="login-screen" id="loginScreen"><div class="login-story"><div class="brand"><img src="assets/forgecost-symbol.svg" width="48" height="48" alt=""><div><strong>ForgeCost</strong><span>GESTÃO INDUSTRIAL DE CUSTOS</span></div></div><div class="login-statement"><div class="eyebrow">DA COMPOSIÇÃO À DECISÃO</div><h1>Precisão em cada peça.<br><em>Clareza em cada custo.</em></h1><p>Materiais, processos e mão de obra em uma visão completa da sua produção.</p><div class="brand-rule"></div><span>01 / CADASTRE &nbsp; 02 / COMPONHA &nbsp; 03 / ANALISE</span></div><small>ForgeCost / V3 • Gestão feita para a fábrica</small></div><div class="login-side"><button class="btn theme-toggle login-theme" type="button">☀ Claro</button><form id="loginForm" class="login-card"><div class="eyebrow">SEU ESPAÇO DE TRABALHO</div><h2>Bem-vindo ao ForgeCost</h2><p>Entre para organizar os custos da sua produção.</p><div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="username" required placeholder="voce@fabrica.com.br"></div><div class="field"><label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" required placeholder="Senha de demonstração"></div><button class="btn primary" type="submit">Entrar <span aria-hidden="true">→</span></button><p class="access-message">É necessário fazer login com seu e-mail para acessar o sistema.</p><div class="demo-notice"><b>Demonstração local</b><p>Use qualquer e-mail válido e uma senha fictícia. A senha não é verificada nem armazenada. Não há autenticação real ou servidor conectado.</p></div><p id="loginError" role="alert"></p></form></div></section><div class="app-shell" id="appShell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="assets/forgecost-symbol.svg" width="40" height="40" alt="Símbolo ForgeCost">
+        <div><strong>ForgeCost</strong><span>CUSTOS INDUSTRIAIS</span></div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>Dashboard</button>
+        <button class="nav-item" data-view="products"><span>▦</span>Produtos</button>
+        <button class="nav-item" data-view="bom"><span>⊞</span>Fichas Técnicas</button>
+        <button class="nav-item" data-view="inputs"><span>◫</span>Insumos</button>
+        <button class="nav-item" data-view="categories"><span>◈</span>Categorias</button>
+        <button class="nav-item" data-view="labor"><span>◷</span>Mão de Obra</button>
+        <button class="nav-item" data-view="costs"><span>∑</span>Custos</button>
+        <button class="nav-item" data-view="history"><span>↺</span>Histórico</button>
+        <button class="nav-item" data-view="reports"><span>▤</span>Relatórios</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-view="settings"><span>⚙</span>Configurações</button>
+        <div class="system-status"><i></i><div><b>Demonstração local</b><small>Dados neste navegador</small></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb"><span>FÁBRICA</span><b>/</b><strong id="breadcrumb">Dashboard</strong></div>
+        <div class="top-actions"><button class="btn theme-toggle" type="button">☀ Claro</button>
+          <button class="icon-btn" title="Pesquisar" id="globalSearchBtn">⌕</button>
+          <div class="user-chip"><span class="avatar">FC</span><span><b id="sessionEmail"></b><small>Workspace demo local</small></span></div><button class="btn" id="logoutBtn">Sair</button>
+        </div>
+      </header>
+      <section class="content" id="content"></section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modal"></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="src/app.js"></script>
+  <script src="src/session-ui.js"></script>
+</body>
+</html>
