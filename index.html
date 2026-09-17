@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111417">
+  <meta name="description" content="Sistema industrial de cadastro, ficha técnica e formação de custos.">
+  <title>ForgeCost — Gestão Industrial de Custos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">FC</div>
+        <div><strong>ForgeCost</strong><span>INDUSTRIAL OS</span></div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>Dashboard</button>
+        <button class="nav-item" data-view="products"><span>▦</span>Produtos</button>
+        <button class="nav-item" data-view="bom"><span>⊞</span>Fichas Técnicas</button>
+        <button class="nav-item" data-view="inputs"><span>◫</span>Insumos</button>
+        <button class="nav-item" data-view="categories"><span>◈</span>Categorias</button>
+        <button class="nav-item" data-view="labor"><span>◷</span>Mão de Obra</button>
+        <button class="nav-item" data-view="costs"><span>∑</span>Custos</button>
+        <button class="nav-item" data-view="history"><span>↺</span>Histórico</button>
+        <button class="nav-item" data-view="reports"><span>▤</span>Relatórios</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-view="settings"><span>⚙</span>Configurações</button>
+        <div class="system-status"><i></i><div><b>Sistema operacional</b><small>Dados locais • Seguro</small></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div class="breadcrumb"><span>FÁBRICA</span><b>/</b><strong id="breadcrumb">Dashboard</strong></div>
+        <div class="top-actions">
+          <button class="icon-btn" title="Pesquisar" id="globalSearchBtn">⌕</button>
+          <button class="user-chip"><span class="avatar">AD</span><span><b>Administrador</b><small>Acesso total</small></span></button>
+        </div>
+      </header>
+      <section class="content" id="content"></section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modal"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="src/app.js"></script>
+</body>
+</html>
