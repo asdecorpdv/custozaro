@@ -51,3 +51,8 @@ API sugerida: POST/DELETE/GET /session; GET/POST /products e /inputs; PATCH/DELE
 
 ## Testes realizados
 Microsoft Edge headless, abrindo index.html: 98 insumos, custo original, criar/editar/excluir produto, adicionar/remover BOM e perdas, adicionar/remover processos, recálculo de insumo, rejeição de zero horas mensais, separação por e-mail, persistência após reload, preferência de tema, dez módulos, viewport 390 px sem overflow da página e ausência de erros JavaScript no fluxo. Login, desktop claro/escuro e mobile conferidos visualmente. A futura integração requer seus próprios testes de autenticação e banco.
+
+
+## Supabase
+
+A versão publicada usa autenticação real do Supabase e grava os dados em PostgreSQL por usuário. Cada login acessa apenas sua própria linha protegida por Row Level Security. O arquivo supabase-setup.sql documenta a tabela, as políticas e a função de gravação. A configuração pública está em src/supabase-config.js; não inclua chaves secret ou service_role no navegador. Crie as contas em Supabase → Authentication → Users → Add user antes de entrar.
