@@ -29,7 +29,7 @@ async function retryCloud(){
   try{
     const remote=await ForgeServices.repository.load(ForgeServices.auth.current(),DEFAULT_STATE);
     if(cloudContent(remote)===cloudContent(state)){cloudClear();cloudToast('Salvamento confirmado no Firebase.');return}
-    if(!cloudBase||cloudContent(remote)!==cloudContent(cloudBase))throw Error('O banco mudou em outra sessão. Exporte o backup pendente antes de conciliar os dados.');
+    if(!cloudBase||cloudContent(remote)!==cloudContent(cloudBase)){cloudBase=cloudCopy(remote);cloudToast('O Firebase tinha uma versão diferente. Salvando a cópia recuperada deste navegador agora.');}
     await cloudCommit();
   }catch(error){cloudStatus('Alterações pendentes — tente novamente');cloudToast(error.message)}finally{cloudLock(false)}
 }
