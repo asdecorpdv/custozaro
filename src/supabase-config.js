@@ -1,5 +1,9 @@
-// Public client configuration; never put a secret/service_role key here.
-window.FORGE_SUPABASE = {
-  url: 'https://rgvgacnsvjakblvmpjgo.supabase.co',
-  publishableKey: 'sb_publishable_6QV0R79kEDBQhilLxT0mkw_QfILQiLB'
+// Public Firebase client configuration; this is not a secret key.
+window.FORGE_FIREBASE = {
+  apiKey: "AIzaSyBmF2JxZc9_quTeS_JNRHumLEtPqrofiQ0",
+  authDomain: "forgecost.firebaseapp.com",
+  projectId: "forgecost",
+  storageBucket: "forgecost.firebasestorage.app",
+  messagingSenderId: "69501860244",
+  appId: "1:69501860244:web:46a00193eb49432bfef781"
 };
