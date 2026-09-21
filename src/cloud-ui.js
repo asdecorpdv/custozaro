@@ -42,15 +42,18 @@ async function cloudLogin(event){
   try{
     const session=await ForgeServices.auth.signIn(cloudNode('email').value,cloudNode('password').value);
     state=await ForgeServices.repository.load(session,DEFAULT_STATE);cloudBase=cloudCopy(state);cloudPending=false;
-    let pending=null;try{pending=JSON.parse(localStorage.getItem(cloudKey())||'null')}catch{}
+    let pending=null,pendingProblem=false;try{pending=JSON.parse(localStorage.getItem(cloudKey())||'null')}catch{pendingProblem=true}
     if(pending){
-      ForgeServices.repository.validate(pending.data);
-      if(cloudContent(pending.data)===cloudContent(state)){try{localStorage.removeItem(cloudKey())}catch{}}
-      else{cloudBase=pending.base;state=pending.data;cloudPending=true;}
+      try{
+        ForgeServices.repository.validate(pending.data);
+        if(cloudContent(pending.data)===cloudContent(state)){try{localStorage.removeItem(cloudKey())}catch{}}
+        else{cloudBase=pending.base;state=pending.data;cloudPending=true;}
+      }catch{pendingProblem=true}
     }
     state.view='dashboard';state.selectedProduct=null;cloudNode('sessionEmail').textContent=session.email;
     cloudNode('loginScreen').hidden=true;cloudNode('appShell').hidden=false;render();
-    cloudStatus(cloudPending?'Cópia pendente recuperada — use Tentar salvar':'Dados carregados do Supabase');
+    cloudStatus(cloudPending?'Cópia pendente recuperada — use Tentar salvar':pendingProblem?'Dados carregados; havia uma cópia local pendente inválida':'Dados carregados do Supabase');
+    if(pendingProblem&&!cloudPending)cloudToast('Login concluído. A cópia local pendente não pôde ser restaurada; seus dados do Supabase foram carregados.');
   }catch(error){cloudNode('loginError').textContent=error.message}
   finally{button.disabled=false;cloudNode('password').value=''}
 }
