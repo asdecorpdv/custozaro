@@ -13,7 +13,7 @@ function cloudClear(){try{localStorage.removeItem(cloudKey())}catch{}cloudPendin
 saveWorkspace=function(){cloudDirty=true;return true};
 toast=function(message){if(cloudBusy)cloudNotice=message;else cloudToast(message)};
 async function cloudCommit(){cloudPending=true;cloudRemember();cloudStatus('Salvando no Firebase…');await ForgeServices.repository.save(ForgeServices.auth.current(),cloudCopy(state));cloudClear();cloudToast('Alterações salvas no Firebase.');}
-for(const name of ['saveProduct','delProduct','saveInput','delInput','saveComp','delComp','saveLabor','resetData','saveProcess','deleteProcess','importBackup','importLegacy']){
+for(const name of ['saveProduct','duplicateProduct','delProduct','saveInput','delInput','saveComp','delComp','saveLabor','setPdvDefaults','resetData','saveProcess','deleteProcess','importBackup','importLegacy']){
   const original=window[name];if(typeof original!=='function')continue;
   window[name]=async function(...args){
     if(cloudBusy)return;
