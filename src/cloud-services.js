@@ -79,14 +79,13 @@ window.ForgeServicesReady=(async()=>{
           const next=await runTransaction(db,async transaction=>{
             const ref=workspaceRef(s.userId),snapshot=await transaction.get(ref);
             const current=snapshot.exists()?snapshot.data().version||0:0;
-            if(current!==revision){const e=Error('Os dados mudaram em outra janela. Use Atualizar dados antes de editar novamente.');e.code='40001';throw e}
             const version=current+1;
             transaction.set(ref,{data:clean,version,email:s.email,updatedAt:serverTimestamp()},{merge:false});
             return version;
           });
           revision=next;
           return {version:revision};
-        }catch(error){if(error?.code==='40001')throw error;throw fail(error)}
+        }catch(error){throw fail(error)}
       },
       legacy(){
         const raw=localStorage.getItem('forgecost_v2');
