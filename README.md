@@ -1,5 +1,13 @@
 # ForgeCost V3
 
+## Precificação Shopee
+
+A aba Shopee usa o custo da ficha técnica ou um custo manual. Calcula repasse, NF (12% por padrão), lucro sobre a venda, preço sem prejuízo e menor preço para a margem desejada (40% por padrão), examinando as faixas de comissão separadamente. Inclui kits, descontos custeados pelo vendedor, embalagem extra, frete, outros custos, afiliados, antecipação e Ads. Recarga Ads e gasto efetivo são alternativas para evitar duplicidade.
+
+As tabelas de março–setembro e de outubro de 2026 são selecionáveis. Confirme a política atual e as bases de cálculo no extrato; parâmetros adicionais não são universais. O botão de estimativa aplica adicional 3,5%, reserva Ads 4%, antecipação 3,5% e ajuste R$ 0,49, todos editáveis. CPF de alto volume abaixo de R$ 12 não é simulado enquanto a regra regressiva não estiver confirmada. A simulação não modifica anúncios na Shopee.
+
+“Salvar parâmetros” guarda as taxas do workspace. “Salvar simulação deste produto” guarda uma cotação do produto selecionado; o custo é atualizado a partir da ficha ao selecioná-lo novamente. “Imprimir / PDF” usa a impressão do navegador. Testes: `node --test tests/shopee.test.cjs`.
+
 Evolução do ZIP V2 original, com os 98 insumos, Cadeira Acapulco, módulos e cálculos preservados.
 
 ## Executar
